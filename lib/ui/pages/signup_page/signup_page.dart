@@ -16,12 +16,13 @@ class SignupPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: ListView(
+        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Spacer(),
+          // const Spacer(),
           Text(
             'Регистрация',
+            textAlign: TextAlign.center,
             style: AppStyle.fontStyle.copyWith(fontSize: 25),
           ),
           const SizedBox(height: 20),
@@ -41,7 +42,7 @@ class SignupPage extends StatelessWidget {
             labelText: 'Пароль',
             obscureText: true,
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 50),
           InkWell(
             onTap: () {
               context.read<AuthBloc>().add(SignUpEvent(
@@ -67,6 +68,7 @@ class SignupPage extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
                 child: Text(
                   'Регистрация',
+                  textAlign: TextAlign.center,
                   style: AppStyle.fontStyle.copyWith(
                     color: AppColors.white,
                     fontSize: 23,
@@ -75,7 +77,7 @@ class SignupPage extends StatelessWidget {
               ),
             ),
           ),
-          const Spacer(),
+          const SizedBox(height: 50),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,

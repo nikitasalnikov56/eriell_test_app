@@ -8,7 +8,6 @@ import 'package:eriell_app/ui/style/app_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class SingInPage extends StatelessWidget {
   const SingInPage({super.key});
 
@@ -16,12 +15,12 @@ class SingInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: ListView(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         children: [
-          const Spacer(),
           Text(
             'Авторизация',
+            textAlign: TextAlign.center,
             style: AppStyle.fontStyle.copyWith(
               fontSize: 25,
             ),
@@ -38,14 +37,14 @@ class SingInPage extends StatelessWidget {
             labelText: 'Пароль',
             obscureText: true,
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 50),
           InkWell(
             onTap: () {
-               context.read<AuthBloc>().add(SignInEvent(
-                AppControllers.emailController.text,
-                AppControllers.passwordController.text,
-              ));
-               ControllerClear.controllerClear();
+              context.read<AuthBloc>().add(SignInEvent(
+                    AppControllers.emailController.text,
+                    AppControllers.passwordController.text,
+                  ));
+              ControllerClear.controllerClear();
             },
             child: DecoratedBox(
               decoration: BoxDecoration(
@@ -63,6 +62,7 @@ class SingInPage extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
                 child: Text(
                   'Войти',
+                  textAlign: TextAlign.center,
                   style: AppStyle.fontStyle.copyWith(
                     color: AppColors.white,
                     fontSize: 23,
@@ -71,7 +71,7 @@ class SingInPage extends StatelessWidget {
               ),
             ),
           ),
-          const Spacer(),
+          const SizedBox(height: 50),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -83,7 +83,7 @@ class SingInPage extends StatelessWidget {
               ),
               InkWell(
                 onTap: () => context.read<PageChangeBloc>().add(
-                       AuthPageChangeEvent(isSignUp: false),
+                      AuthPageChangeEvent(isSignUp: false),
                     ),
                 child: Text(
                   ' Зарегистрируйтесь',

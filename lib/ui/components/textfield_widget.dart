@@ -1,3 +1,4 @@
+import 'package:eriell_app/ui/style/app_colors.dart';
 import 'package:eriell_app/ui/style/app_style.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -27,12 +28,12 @@ class TextfieldWidget extends StatelessWidget {
         placeholderStyle: AppStyle.fontStyle.copyWith(
           fontSize: 14,
         ),
-        scrollPadding: const EdgeInsets.all(
-          15,
+        decoration: BoxDecoration(
+          border: Border.all(color: AppColors.blue),
+          borderRadius: BorderRadius.circular(8),
         ),
       ),
     );
-
   }
 }
 

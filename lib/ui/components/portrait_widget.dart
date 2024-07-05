@@ -34,11 +34,17 @@ class PortraitWidget extends StatelessWidget {
               }
               context.read<AuthBloc>().add(CheckAuthEvent());
             },
-            icon: const Icon(Icons.logout),
+            icon: const Icon(
+              Icons.logout,
+              color: AppColors.blue,
+              size: 35,
+            ),
           ),
         ],
       ),
-      body:  PortraitBody(state:  state,),
+      body: PortraitBody(
+        state: state,
+      ),
     );
   }
 }
